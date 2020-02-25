@@ -11,7 +11,7 @@ function App() {
       <Switch>
         <Route
           render={(): ReactElement => (
-            <div>Error</div>
+            <div>Basic</div>
           )}
         ></Route>
       </Switch>
