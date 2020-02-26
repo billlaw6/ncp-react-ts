@@ -1,6 +1,6 @@
 import React from "react";
-import { Form, Button, Input, Row, Col, Select } from "antd";
-import { connect, MapDispatchToProps } from "react-redux";
+import { Form, Button, Input } from "antd";
+import { connect } from "react-redux";
 
 import { StoreStateI } from "../../constants/interface";
 import {
@@ -94,20 +94,12 @@ class Register extends React.Component<RegisterFormProps & RegisterPropsI, Regis
   render() {
     const {
       getFieldDecorator,
-      getFieldValue,
-      getFieldsError,
-      getFieldError,
-      isFieldTouched,
     } = this.props.form;
-    const { } = this.props;
     const { registerErrors } = this.state;
     return (
       <section className="register">
-        <div className="register-header">注册用户</div>
-        <div className="register-statement">
-          有工号的职工请直接使用工号<a href="/login">登录</a>，默认密码为111111
-        </div>
         <div className="register-content">
+          <div className="register-header">注册用户</div>
           <Form className="register-form" name="register" onSubmit={this.handleSubmit}>
             <div className="register-form-info">
               <Item label="手机号码" colon={false}>
@@ -183,27 +175,15 @@ class Register extends React.Component<RegisterFormProps & RegisterPropsI, Regis
                   })}
                 </div>
               </Item>
-              <Row
-                className="register-form-btns"
-                gutter={35}
-                type="flex"
-                align="middle"
-                justify="center"
-                style={{ visibility: "visible" }}
-              >
-                <Col span={10}>
-                  <Item>
-                    <Button
-                      className="register-form-submit-button"
-                      type="default"
-                      htmlType="submit"
-                    >
-                      {" "}
-                      注册{" "}
-                    </Button>
-                  </Item>
-                </Col>
-              </Row>
+              <Item style={{textAlign: "center"}}>
+                <Button
+                  className="register-form-submit"
+                  type="default"
+                  htmlType="submit"
+                >
+                  注册
+                </Button>
+              </Item>
             </div>
           </Form>
         </div>
@@ -213,7 +193,7 @@ class Register extends React.Component<RegisterFormProps & RegisterPropsI, Regis
 }
 
 const WrappedRegister = Form.create<RegisterFormProps & RegisterPropsI>({
-  name: "daily_report_form",
+  name: "register_form",
   onFieldsChange(props, changedFields) {
     // console.log(changedFields);
   },

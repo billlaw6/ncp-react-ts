@@ -11,7 +11,7 @@ const { Item: MenuItem, ItemGroup: MenuItemGroup, Divider } = Menu;
 const { Header: AntdHeader } = Layout;
 
 const getAvatarMenu: FunctionComponent<HeaderPropsI> = (props): ReactElement => {
-  const { name, empCode, cellPhone, logout, duty } = props;
+  const { name, empCode, cellPhone, logout } = props;
 
   const onClick = (e: ClickParam): void => {
     const { key } = e;
@@ -50,13 +50,10 @@ const getAvatarMenu: FunctionComponent<HeaderPropsI> = (props): ReactElement => 
 };
 
 const Header: FunctionComponent<HeaderPropsI> = (props): ReactElement => {
-  const { name, empCode, cellPhone, logout } = props;
-
   return (
     <AntdHeader id="header">
       <div className="header-content">
         <a className="logo" href="/">
-          北医三院抗疫日报平台
         </a>
 
         <Dropdown

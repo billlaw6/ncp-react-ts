@@ -1,6 +1,6 @@
 import React, { Component, ReactElement } from "react";
 import { Layout } from "antd";
-import { connect, MapDispatchToProps } from "react-redux";
+import { connect } from "react-redux";
 
 /* components */
 import Header from "../../components/Header/Header";
@@ -12,7 +12,6 @@ import "./Default.less";
 
 /* action */
 import { logoutUserAction } from "../../store/actions/user";
-import { LOGOUT_USER } from "../../store/action-types";
 
 const { Content } = Layout;
 
