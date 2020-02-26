@@ -10,9 +10,10 @@ import { ConfigProvider } from "antd";
 import locale from "antd/es/locale/zh_CN";
 import moment from "moment";
 import "moment/locale/zh-cn";
-import { IntlProvider } from "react-intl";
-import zh_CN from "./locales/zh_CN";
-import en_US from "./locales/en_US";
+// import { IntlProvider } from "react-intl";
+// import zh_CN from "./locales/zh_CN";
+// import en_US from "./locales/en_US";
+// import intl from "intl";
 import App from './App';
 import './index.css';
 
@@ -22,12 +23,12 @@ export { moment };
 export const store = configureStore();
 const persistor = persistStore(store);
 
-let messages = {
-    en: {},
-    zh: {},
-}
-messages["en"] = en_US;
-messages["zh"] = zh_CN;
+// let messages = {
+//     en: {},
+//     zh: {},
+// }
+// messages["en"] = en_US;
+// messages["zh"] = zh_CN;
 
 
 const Loading = () => <div>loading</div>;
@@ -35,13 +36,13 @@ const Loading = () => <div>loading</div>;
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <IntlProvider locale="zh" messages={messages["zh"]}>
+            {/* <IntlProvider locale="zh" messages={messages["zh"]}> */}
                 <PersistGate loading={<Loading/>} persistor={persistor}>
                     <ConfigProvider locale={locale}>
                         <App />
                     </ConfigProvider>
                 </PersistGate>
-            </IntlProvider>
+            {/* </IntlProvider> */}
         </ConnectedRouter>
     </Provider>
     , document.getElementById('root')

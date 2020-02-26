@@ -1423,6 +1423,11 @@
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
 
+"@types/intl@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.npm.taobao.org/@types/intl/download/@types/intl-1.2.0.tgz#1245511f13064402087979f498764611a3c758fc"
+  integrity sha1-EkVRHxMGRAIIeXn0mHZGEaPHWPw=
+
 "@types/invariant@^2.2.31":
   version "2.2.31"
   resolved "https://registry.npm.taobao.org/@types/invariant/download/@types/invariant-2.2.31.tgz#4444c03004f215289dbca3856538434317dd28b2"
@@ -5525,6 +5530,11 @@ intl-messageformat@^7.8.2:
   dependencies:
     intl-format-cache "^4.2.21"
     intl-messageformat-parser "^3.6.4"
+
+intl@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.npm.taobao.org/intl/download/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
+  integrity sha1-giRKIZDE5Bn4Nx9ao02qNCDiq94=
 
 invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
