@@ -1,8 +1,8 @@
 import { ComponentType } from "react";
 
-// import Home from "../pages/home/index";
-// import Register from "../pages/register/Register";
+import Register from "../pages/register/Register";
 // import Login from "../pages/login_action/Login";
+// import Home from "../pages/home/index";
 // import Profile from "../profile/Profile";
 // // import TempReport from "../temp_report/TempReport";
 // // import CadreReport from "../cadre_report/CadreReport";
@@ -23,23 +23,23 @@ export interface RoutesI {
 }
 
 const routes: RoutesI[] = [
+  {
+    name: "register",
+    path: "/register",
+    component: Register,
+  },
+  // {
+  //   name: "login",
+  //   path: "/login",
+  //   component: Login,
+  //   // layout: FullscreenLayout,
+  // },
   // {
   //   name: "home",
   //   path: "/",
   //   exact: true,
   //   component: Home,
   //   permission: ["login"],
-  // },
-  // {
-  //   name: "register",
-  //   path: "/register",
-  //   component: Register,
-  // },
-  // {
-  //   name: "login",
-  //   path: "/login",
-  //   component: Login,
-  //   // layout: FullscreenLayout,
   // },
   // {
   //   name: "profile",

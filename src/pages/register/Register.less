@@ -1,0 +1,122 @@
+@primaryColor: #7594ff;
+
+.register {
+  width: 80%;
+  margin: 0 auto 40px;
+
+  &-header {
+    padding: 28px 0 18px;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  &-content {
+    margin: 0 auto;
+    max-width: 662px;
+  }
+
+  &-form {
+    &-validate-error {
+      color: red;
+    }
+    &-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+
+      > span {
+        cursor: pointer;
+        font-weight: 500;
+        &:hover {
+          color: @primaryColor;
+        }
+      }
+    }
+
+    &-cancel {
+      border-color: #bfbfbf !important;
+      color: #bfbfbf !important;
+
+      &:hover {
+        color: #bfbfbf !important;
+        border-color: #bfbfbf !important;
+      }
+    }
+
+    &-submit {
+      border-radius: 19px !important;
+      border-color: @primaryColor !important;
+      color: @primaryColor !important;
+      width: 20%;
+
+      &:hover {
+        color: #fff !important;
+        background-color: @primaryColor !important;
+      }
+    }
+
+    &-birthday {
+      width: 100%;
+    }
+    .ant-row {
+      margin-bottom: 8px;
+    }
+
+    label {
+      color: #8c8c8c;
+    }
+  }
+
+  input {
+    font-size: 14px;
+    color: #595959;
+    font-weight: 500;
+    border-radius: 8px;
+    border-color: #b6b6b6;
+  }
+
+  .ant-input:focus,
+  .ant-input:hover,
+  .ant-select-selection:hover,
+  .ant-select-selection:focus {
+    border-color: @primaryColor;
+  }
+
+  .ant-select-disabled .ant-select-selection,
+  .ant-input-disabled {
+    cursor: default;
+    background: transparent;
+    border-color: #e8e8e8;
+    color: #595959;
+    &:hover {
+      border-color: #e8e8e8;
+    }
+  }
+
+  .ant-select-disabled {
+    .ant-select-selection {
+      background-color: #fff;
+    }
+    .ant-select-arrow {
+      display: none;
+    }
+  }
+
+  &-editing {
+    &.register-form-header > span {
+      display: none;
+    }
+
+    .register-form-avatar-desc {
+      display: flex;
+    }
+  }
+
+  .text-count {
+    display: inline-block;
+    position: absolute;
+    top: -48px;
+    right: 0;
+    color: #bfbfbf;
+  }
+}
