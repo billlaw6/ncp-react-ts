@@ -79,7 +79,7 @@ function* updateUserEffect(action: ReturnType<typeof updateUserAction>) {
 
 function* logoutUserEffect(action: ReturnType<typeof logoutUserAction>) {
   try {
-    const res = yield call(logoutUser);
+    yield call(logoutUser);
     yield put({ type: types.SET_DAILY_REPORT_LIST, payload: [] });
     yield put({ type: types.SET_DEPARTMENT_LIST, payload: [] });
     yield put({ type: types.SET_TOKEN, payload: "" });
