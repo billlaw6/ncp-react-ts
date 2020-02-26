@@ -17,9 +17,8 @@ import { setTokenAction, setUserAction, registerUserAction } from "../../store/a
 import { history } from "../../store/configureStore";
 
 const { Item } = Form;
-const { Option } = Select;
 
-interface RegisterFormProps extends FormComponentProps {}
+interface RegisterFormProps extends FormComponentProps { }
 
 class Register extends React.Component<RegisterFormProps & RegisterPropsI, RegisterStateI> {
   constructor(props: RegisterFormProps & RegisterPropsI) {
@@ -79,7 +78,7 @@ class Register extends React.Component<RegisterFormProps & RegisterPropsI, Regis
             console.log(res.data);
             setTokenAction(res.data.token);
             setUserAction(res.data.user_info);
-            history.push("/daily-report");
+            // history.push("/daily-report");
           })
           .catch((err: any) => {
             console.log(err.response.data);
@@ -100,7 +99,7 @@ class Register extends React.Component<RegisterFormProps & RegisterPropsI, Regis
       getFieldError,
       isFieldTouched,
     } = this.props.form;
-    const {} = this.props;
+    const { } = this.props;
     const { registerErrors } = this.state;
     return (
       <section className="register">
@@ -158,7 +157,7 @@ class Register extends React.Component<RegisterFormProps & RegisterPropsI, Regis
                         {
                           password1: e.target.value,
                         },
-                        () => {},
+                        () => { },
                       );
                     }}
                   />,
