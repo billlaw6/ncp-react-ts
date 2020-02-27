@@ -1,4 +1,4 @@
-import { UserI, ActionI, DepartmentI } from "../../constants/interface";
+import { UserI, ActionI } from "../../constants/interface";
 import * as types from "../action-types";
 
 // 需要监听：用于用户注册
@@ -68,26 +68,5 @@ export interface LogoutUserActionFuncI {
 }
 export const logoutUserAction: LogoutUserActionFuncI = payload => ({
   type: types.LOGOUT_USER,
-  payload,
-});
-
-interface SearchFormI {
-  keyword: string;
-}
-export type GetDepartmentListActionT = ActionI<string, SearchFormI>;
-export interface GetDepartmentListActionFuncI {
-  (payload: SearchFormI): GetDepartmentListActionT;
-}
-export const getDepartmentListAction: GetDepartmentListActionFuncI = payload => ({
-  type: types.GET_DEPARTMENT_LIST,
-  payload,
-});
-
-export type SetDepartmentListActionT = ActionI<string, DepartmentI[]>;
-export interface SetDepartmentListActionFuncI {
-  (payload: DepartmentI[]): SetDepartmentListActionT;
-}
-export const setDepartmentListAction: SetDepartmentListActionFuncI = payload => ({
-  type: types.SET_DEPARTMENT_LIST,
   payload,
 });

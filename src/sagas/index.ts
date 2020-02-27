@@ -1,17 +1,15 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import {
-  getDepartmentListAction,
   registerUserAction,
   loginUserAction,
   updateUserAction,
   logoutUserAction,
 } from "../store/actions/user";
 import {
-  getDailyReportListAction,
-  checkDailyReportListAction,
+  getCaseRecordListAction,
+  checkCaseRecordListAction,
 } from "../store/actions/report";
 import {
-  getDepartmentList,
   registerUser,
   loginUser,
   getUserInfo,
@@ -19,12 +17,12 @@ import {
   updateUserInfo,
 } from "../services/user";
 import {
-  getDailyReportList,
-  checkDailyReport,
+  getCaseRecordList,
+  checkCaseRecord,
 } from "../services/report";
 import * as types from "../store/action-types";
 import { push } from "connected-react-router";
-// import { store } from "../index";
+import { store } from "../index";
 
 // worker Saga : 将在 action 被 dispatch 时调用
 // 用户信息修改页发出updateUserAction
@@ -80,49 +78,34 @@ function* updateUserEffect(action: ReturnType<typeof updateUserAction>) {
 function* logoutUserEffect(action: ReturnType<typeof logoutUserAction>) {
   try {
     yield call(logoutUser);
-    yield put({ type: types.SET_DAILY_REPORT_LIST, payload: [] });
-    yield put({ type: types.SET_DEPARTMENT_LIST, payload: [] });
+    yield put({ type: types.SET_CASE_RECORD_LIST, payload: [] });
     yield put({ type: types.SET_TOKEN, payload: "" });
     yield put({ type: types.SET_USER, payload: {} });
     yield put({ type: types.SET_LOGIN_ERROR, payload: "" });
-    yield put({ type: types.SET_DAILY_REPORT_SEARCH_FORM, payload: {} });
+    yield put({ type: types.SET_CASE_RECORD_SEARCH_FORM, payload: {} });
     yield put(push("/login"));
   } catch (error) {
     console.error(error);
   }
 }
 
-function* getDepartmentListEffect(action: ReturnType<typeof getDepartmentListAction>) {
+function* getCaseRecordEffect(action: ReturnType<typeof getCaseRecordListAction>) {
   try {
     // console.log(action.payload);
-    const res = yield call(getDepartmentList, action.payload);
-    // console.log(typeof JSON.parse(res.data));
+    const res = yield call(getCaseRecordList, action.payload);
     // console.log(res.data);
     // put对应redux中的dispatch。
-    yield put({ type: types.SET_DEPARTMENT_LIST, payload: res.data });
+    yield put({ type: types.SET_CASE_RECORD_LIST, payload: res.data });
   } catch (error) {
     console.log(error.response);
   }
 }
 
-function* getDailyReportEffect(action: ReturnType<typeof getDailyReportListAction>) {
+function* checkCaseRecordEffect(action: ReturnType<typeof checkCaseRecordListAction>) {
   try {
-    // console.log(action.payload);
-    const res = yield call(getDailyReportList, action.payload);
-    // console.log(res.data);
-    // put对应redux中的dispatch。
-    yield put({ type: types.SET_DAILY_REPORT_LIST, payload: res.data });
-  } catch (error) {
-    console.log(error.response);
-  }
-}
-
-function* checkDailyReportEffect(action: ReturnType<typeof checkDailyReportListAction>) {
-  try {
-    const res = yield call(checkDailyReport, action.payload);
+    yield call(checkCaseRecord, action.payload);
     // 删除操作后用默认条件再获取一次结果，页面中暂未设定查询条件
-    const defaultDailyReportSearchForm = {};
-    yield put({ type: types.GET_DAILY_REPORT_LIST, payload: defaultDailyReportSearchForm });
+    yield put({ type: types.GET_CASE_RECORD_LIST, payload: store.getState().caseRecordSearchForm });
   } catch (error) {
     console.log(error.response);
   }
@@ -134,9 +117,8 @@ function* rootSaga() {
   yield takeEvery(types.LOGIN_USER, loginUserEffect);
   yield takeEvery(types.UPDATE_USER, updateUserEffect);
   yield takeEvery(types.LOGOUT_USER, logoutUserEffect);
-  yield takeEvery(types.GET_DEPARTMENT_LIST, getDepartmentListEffect);
-  yield takeEvery(types.GET_DAILY_REPORT_LIST, getDailyReportEffect);
-  yield takeEvery(types.CHECK_DAILY_REPORT_LIST, checkDailyReportEffect);
+  yield takeEvery(types.GET_CASE_RECORD_LIST, getCaseRecordEffect);
+  yield takeEvery(types.CHECK_CASE_RECORD_LIST, checkCaseRecordEffect);
 }
 
 export default rootSaga;

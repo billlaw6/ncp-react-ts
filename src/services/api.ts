@@ -3,8 +3,7 @@ import qs from "qs";
 import { history } from "../store/configureStore";
 import { store } from "../index";
 
-// let store = configureStore();
-let requestName: string; // 每次发起请求都会携带这个参数，用于标识这次请求，如果值相等，则取消重复请求
+// let requestName: string; // 每次发起请求都会携带这个参数，用于标识这次请求，如果值相等，则取消重复请求
 
 switch (process.env.NODE_ENV) {
   case "development":
@@ -19,55 +18,23 @@ switch (process.env.NODE_ENV) {
     break;
 }
 
-axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+// axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+// axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 
 axios.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    // config 代表发起请求的参数的实体(可以发起一个请求在控制台打印一下这个config看看是什么东西)
-    // 得到参数中的 requestName 字段，用于决定下次发起请求，取消对应的 相同字段的请求
-    // 如果没有 requestName 就默认添加一个 不同的时间戳
-    config.headers["X-Requested-With"] = "XMLHttpRequest";
+    // config.headers["X-Requested-With"] = "XMLHttpRequest";
     const regex = /.*csrftoken=([^;.]*).*$/; // 用于从cookies中匹配csrftoken值
     config.headers["X-CSRFToken"] =
       document.cookie.match(regex) === null ? null : document.cookie.match(regex)![1];
-    // localStorage在这里有点不及时
-    // const persistRoot = JSON.parse(localStorage.getItem("persist:root")!);
-    // if (persistRoot.token && persistRoot.token.length > 2) {
-    //   console.log("Token " + JSON.parse(persistRoot.token));
-    //   config.headers.Authorization = "Token " + JSON.parse(persistRoot.token);
-    // }
     const token = store.getState().token;
     if (token) {
-      console.log("Token " + token);
+      // console.log("Token " + token);
       config.headers.Authorization = "Token " + token;
     }
-
     if (config.method === "post") {
-      // console.log(config.data);
-      // console.log(qs.parse(config.data));
-      if (config.data && qs.parse(config.data).requestName) {
-        requestName = qs.parse(config.data).requestName;
-      } else {
-        requestName = new Date().getTime().toString();
-      }
-    } else {
-      if (config.params && config.params.requestName) {
-        //如果请求参数中有这个requestName标识，则赋值给上面定义的requestName
-        requestName = config.params.requestName;
-      } else {
-        requestName = new Date().getTime().toString();
-      }
+      config.data = qs.stringify(config.data)
     }
-    // 判断，如果这里拿到的参数中的 requestName 在上一次请求中已经存在，就取消上一次的请求
-    // if (requestName) {
-    //     if (axios.get(requestName) && axios.get(requestName).cancel ) {
-    //         axios.get(requestName).cancel('取消了请求');
-    //     }
-    //     config.cancelToken = new axios.CancelToken((c: any) => {
-    //         axios.get(requestName) = {};
-    //         axios.get(requestName).cancel = c; //取消请求操作
-    //     });
-    // }
     return config;
   },
   (error: any) => {

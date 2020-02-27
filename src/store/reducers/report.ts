@@ -1,26 +1,26 @@
 import moment from "moment";
 import {
-  DailyReportI,
-  DailyReportSearchFormI,
-  DailyReportStatsT,
+  CaseRecordI,
+  CaseRecordSearchFormI,
+  CaseRecordStatsT,
 } from "../../constants/interface";
 import * as types from "../action-types";
 import {
-  setDailyReportListAction,
-  setDailyReportSearchAction,
-  setDailyReportStatsAction,
+  setCaseRecordListAction,
+  setCaseRecordSearchAction,
+  setCaseRecordStatsAction,
 } from "../actions/report";
 
 
-const defaultDailyReportList: DailyReportI[] = [];
-const dailyReportListReducer = (
-  state = defaultDailyReportList,
-  action: ReturnType<typeof setDailyReportListAction>,
-): DailyReportI[] => {
+const defaultCaseRecordList: CaseRecordI[] = [];
+const caseRecordListReducer = (
+  state = defaultCaseRecordList,
+  action: ReturnType<typeof setCaseRecordListAction>,
+): CaseRecordI[] => {
   if (!action) return state;
   switch (action.type) {
     // 全部CASE必须返回STATE类型的数据，以替换原来的STATE。actions文件中已经指定了payload的类型。
-    case types.SET_DAILY_REPORT_LIST:
+    case types.SET_CASE_RECORD_LIST:
       return action.payload;
     default: {
       return state;
@@ -30,7 +30,7 @@ const dailyReportListReducer = (
 
 // 默认取当天的数据
 const dateFormat = "YYYY-MM-DD HH:mm:ss";
-const defaultDailyReportSearchForm: DailyReportSearchFormI = {
+const defaultCaseRecordSearchForm: CaseRecordSearchFormI = {
   start: moment()
     .startOf("day")
     .locale("zh-cn")
@@ -41,16 +41,16 @@ const defaultDailyReportSearchForm: DailyReportSearchFormI = {
     .format(dateFormat),
   keyword: "",
 };
-const dailyReportSearchFormReducer = (
-  state = defaultDailyReportSearchForm,
-  action: ReturnType<typeof setDailyReportSearchAction>,
-): DailyReportSearchFormI => {
+const caseRecordSearchFormReducer = (
+  state = defaultCaseRecordSearchForm,
+  action: ReturnType<typeof setCaseRecordSearchAction>,
+): CaseRecordSearchFormI => {
   if (!action) return state;
   switch (action.type) {
     // 全部CASE必须返回STATE类型的数据，以替换原来的STATE。actions文件中已经指定了payload的类型。
-    case types.SET_DAILY_REPORT_SEARCH_FORM:
+    case types.SET_CASE_RECORD_SEARCH_FORM:
       return {
-        ...defaultDailyReportSearchForm,
+        ...defaultCaseRecordSearchForm,
         ...action.payload,
       };
     default: {
@@ -59,15 +59,15 @@ const dailyReportSearchFormReducer = (
   }
 };
 
-const defaultDailyReportStats: DailyReportStatsT[] = [["", "", "", "", 0, 0]];
-const dailyReportStatsReducer = (
-  state = defaultDailyReportStats,
-  action: ReturnType<typeof setDailyReportStatsAction>,
-): DailyReportStatsT[] => {
+const defaultCaseRecordStats: CaseRecordStatsT[] = [["", "", "", "", 0, 0]];
+const caseRecordStatsReducer = (
+  state = defaultCaseRecordStats,
+  action: ReturnType<typeof setCaseRecordStatsAction>,
+): CaseRecordStatsT[] => {
   if (!action) return state;
   switch (action.type) {
     // 全部CASE必须返回STATE类型的数据，以替换原来的STATE。actions文件中已经指定了payload的类型。
-    case types.SET_DAILY_REPORT_STATS:
+    case types.SET_CASE_RECORD_STATS:
       return action.payload;
     default: {
       return state;
@@ -76,7 +76,7 @@ const dailyReportStatsReducer = (
 };
 
 export {
-  dailyReportListReducer,
-  dailyReportSearchFormReducer,
-  dailyReportStatsReducer,
+  caseRecordListReducer,
+  caseRecordSearchFormReducer,
+  caseRecordStatsReducer,
 };

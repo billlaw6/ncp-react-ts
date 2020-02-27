@@ -1,5 +1,6 @@
 import React, { Component, ReactElement } from "react";
-import { Route, RouteComponentProps } from "react-router-dom";
+// import { Route, RouteComponentProps } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { StoreStateI } from "../constants/interface";
 import { history } from "../store/configureStore";
@@ -30,7 +31,7 @@ class RouteWithSubRoutes extends Component<RoutesI & MapStateToPropsI> {
         render={(props): ReactElement => {
           return (
             <Layout>
-              <Cmp {...props}></Cmp>
+              <Cmp {...props} routes={routes}></Cmp>
             </Layout>
           );
         }}

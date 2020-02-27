@@ -30,6 +30,7 @@ class Register extends React.Component<RegisterFormProps & RegisterPropsI, Regis
         name: [],
         password1: [],
         password2: [],
+        non_field_errors: [],
       },
     };
     this.password2Validator = this.password2Validator.bind(this); // 解决函数内部取不到props和state的问题
@@ -78,7 +79,7 @@ class Register extends React.Component<RegisterFormProps & RegisterPropsI, Regis
             console.log(res.data);
             setTokenAction(res.data.token);
             setUserAction(res.data.user_info);
-            // history.push("/daily-report");
+            history.push("/");
           })
           .catch((err: any) => {
             console.log(err.response.data);
@@ -171,6 +172,13 @@ class Register extends React.Component<RegisterFormProps & RegisterPropsI, Regis
                 })(<Input disabled={false} type="password" name="password2" />)}
                 <div className="register-form-validate-error">
                   {registerErrors.password2.map(item => {
+                    return <li>{item}</li>;
+                  })}
+                </div>
+              </Item>
+              <Item>
+                <div className="login-form-validate-error">
+                  {registerErrors.non_field_errors.map(item => {
                     return <li>{item}</li>;
                   })}
                 </div>

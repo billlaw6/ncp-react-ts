@@ -1,13 +1,13 @@
 import { ComponentType } from "react";
 
 import Register from "../pages/register/Register";
-// import Login from "../pages/login_action/Login";
+import Login from "../pages/login/Login";
+import CaseRecord from "../pages/case_record/CaseRecord";
+// import CadreReport from "../cadre_report/CadreReport";
 // import Home from "../pages/home/index";
 // import Profile from "../profile/Profile";
 // // import TempReport from "../temp_report/TempReport";
-// // import CadreReport from "../cadre_report/CadreReport";
 // import DailyReport from "../daily_report/DailyReport";
-// import CaseRecord from "../case_record/CaseRecord";
 
 import DefaultLayout from "../layout/default/Default";
 import FullscreenLayout from "../layout/fullscreenLayout/FullscreenLayout";
@@ -28,12 +28,18 @@ const routes: RoutesI[] = [
     path: "/register",
     component: Register,
   },
-  // {
-  //   name: "login",
-  //   path: "/login",
-  //   component: Login,
-  //   // layout: FullscreenLayout,
-  // },
+  {
+    name: "login",
+    path: "/login",
+    component: Login,
+    // layout: FullscreenLayout,
+  },
+  {
+    name: "caseRecord",
+    path: "/case-record",
+    component: CaseRecord,
+    layout: FullscreenLayout,
+  },
   // {
   //   name: "home",
   //   path: "/",
@@ -52,12 +58,6 @@ const routes: RoutesI[] = [
   //   path: "/daily-report",
   //   component: DailyReport,
   //   permission: ["login"],
-  // },
-  // {
-  //   name: "caseRecord",
-  //   path: "/case-record",
-  //   component: CaseRecord,
-  //   layout: FullscreenLayout,
   // },
   // {
   //   name: "tempReport",

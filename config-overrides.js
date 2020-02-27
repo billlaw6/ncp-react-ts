@@ -21,7 +21,7 @@ module.exports = override(
   }),
   addWebpackPlugin(
     new copyWebpackPlugin([
-      { from: "src/assets/styles/qrcode.css", to: "static/css/[name].[ext]" },
+      // { from: "src/assets/styles/qrcode.css", to: "static/css/[name].[ext]" },
     ]),
   ),
 );

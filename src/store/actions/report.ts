@@ -1,8 +1,8 @@
 import {
   ActionI,
-  DailyReportI,
-  DailyReportSearchFormI,
-  DailyReportStatsT,
+  CaseRecordI,
+  CaseRecordSearchFormI,
+  CaseRecordStatsT,
 } from "../../constants/interface";
 import * as types from "../action-types";
 
@@ -15,48 +15,57 @@ interface SearchFormI {
 }
 
 //////////////////////////////////////////////////////////////////////////
-export type setDailyReportSearchFormActionT = ActionI<string, DailyReportSearchFormI>;
-export interface SetDailyReportSearchFormActionFuncI {
-  (payload: DailyReportSearchFormI): GetDailyReportListActionT;
+export type setCaseRecordSearchFormActionT = ActionI<string, CaseRecordSearchFormI>;
+export interface SetCaseRecordSearchFormActionFuncI {
+  (payload: CaseRecordSearchFormI): GetCaseRecordListActionT;
 }
-export const setDailyReportSearchAction: SetDailyReportSearchFormActionFuncI = payload => ({
-  type: types.SET_DAILY_REPORT_SEARCH_FORM,
+export const setCaseRecordSearchAction: SetCaseRecordSearchFormActionFuncI = payload => ({
+  type: types.SET_CASE_RECORD_SEARCH_FORM,
   payload,
 });
 
-export type GetDailyReportListActionT = ActionI<string, DailyReportSearchFormI>;
-export interface GetDailyReportListActionFuncI {
-  (payload: DailyReportSearchFormI): GetDailyReportListActionT;
+export type GetCaseRecordListActionT = ActionI<string, CaseRecordSearchFormI>;
+export interface GetCaseRecordListActionFuncI {
+  (payload: CaseRecordSearchFormI): GetCaseRecordListActionT;
 }
-export const getDailyReportListAction: GetDailyReportListActionFuncI = payload => ({
-  type: types.GET_DAILY_REPORT_LIST,
+export const getCaseRecordListAction: GetCaseRecordListActionFuncI = payload => ({
+  type: types.GET_CASE_RECORD_LIST,
   payload,
 });
 
 // 用于saga监听，发起远程删除请求，更新本地数据
-export type CheckDailyReportListActionT = ActionI<string, string[]>;
-export interface CheckDailyReportListActionFuncI {
-  (payload: string[]): CheckDailyReportListActionT;
+export type CheckCaseRecordListActionT = ActionI<string, string[]>;
+export interface CheckCaseRecordListActionFuncI {
+  (payload: string[]): CheckCaseRecordListActionT;
 }
-export const checkDailyReportListAction: CheckDailyReportListActionFuncI = payload => ({
-  type: types.CHECK_DAILY_REPORT_LIST,
+export const checkCaseRecordListAction: CheckCaseRecordListActionFuncI = payload => ({
+  type: types.CHECK_CASE_RECORD_LIST,
   payload,
 });
 
-export type SetDailyReportListActionT = ActionI<string, DailyReportI[]>;
-export interface SetDailyReportListActionFuncI {
-  (payload: DailyReportI[]): SetDailyReportListActionT;
+export type SetCaseRecordActionT = ActionI<string, CaseRecordI>;
+export interface SetCaseRecordActionFuncI {
+  (payload: CaseRecordI): SetCaseRecordActionT;
 }
-export const setDailyReportListAction: SetDailyReportListActionFuncI = payload => ({
-  type: types.SET_DAILY_REPORT_LIST,
+export const setCaseRecordAction: SetCaseRecordActionFuncI = payload => ({
+  type: types.SET_CASE_RECORD,
   payload,
 });
 
-export type SetDailyReportStatsActionT = ActionI<string, DailyReportStatsT[]>;
-export interface SetDailyReportStatsActionFuncI {
-  (payload: DailyReportStatsT[]): SetDailyReportStatsActionT;
+export type SetCaseRecordListActionT = ActionI<string, CaseRecordI[]>;
+export interface SetCaseRecordListActionFuncI {
+  (payload: CaseRecordI[]): SetCaseRecordListActionT;
 }
-export const setDailyReportStatsAction: SetDailyReportStatsActionFuncI = payload => ({
-  type: types.SET_DAILY_REPORT_STATS,
+export const setCaseRecordListAction: SetCaseRecordListActionFuncI = payload => ({
+  type: types.SET_CASE_RECORD_LIST,
+  payload,
+});
+
+export type SetCaseRecordStatsActionT = ActionI<string, CaseRecordStatsT[]>;
+export interface SetCaseRecordStatsActionFuncI {
+  (payload: CaseRecordStatsT[]): SetCaseRecordStatsActionT;
+}
+export const setCaseRecordStatsAction: SetCaseRecordStatsActionFuncI = payload => ({
+  type: types.SET_CASE_RECORD_STATS,
   payload,
 });
