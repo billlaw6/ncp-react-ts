@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import { UserI, DepartmentI } from "../../constants/interface";
+import { UserI } from "../../constants/interface";
 import {
   setTokenAction,
   setUserAction,

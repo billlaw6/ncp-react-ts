@@ -6,6 +6,7 @@ import {
   caseRecordListReducer,
   caseRecordSearchFormReducer,
   caseRecordStatsReducer,
+  caseRecordReducer,
 } from "./report";
 
 // 每个reducer必须都返回state类型的数据！
@@ -14,6 +15,7 @@ const createRootReducer = (history: History) =>
     router: connectRouter(history),
     token: tokenReducer,
     user: userReducer,
+    caseRecord: caseRecordReducer,
     caseRecordSearchForm: caseRecordSearchFormReducer,
     caseRecordList: caseRecordListReducer,
     caseRecordStats: caseRecordStatsReducer,

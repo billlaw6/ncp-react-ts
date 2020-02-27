@@ -28,15 +28,10 @@ const getAvatarMenu: FunctionComponent<HeaderPropsI> = (props): ReactElement => 
         </ul>
       </MenuItemGroup>
       <Divider></Divider>
-      <MenuItemGroup>
-        <MenuItem className="edit-user-info" key="editUserInfo">
-          <Link to="/profile">个人信息编辑</Link>
-        </MenuItem>
-      </MenuItemGroup>
       <Divider></Divider>
       <MenuItemGroup>
         <MenuItem>
-          <Link to="/daily-report">新建上报</Link>
+          <Link to="/">病历录入</Link>
         </MenuItem>
       </MenuItemGroup>
       <Divider></Divider>

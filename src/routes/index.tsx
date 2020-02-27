@@ -1,6 +1,6 @@
 import { ComponentType } from "react";
 
-import Register from "../pages/register/Register";
+// import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import CaseRecord from "../pages/case_record/CaseRecord";
 // import CadreReport from "../cadre_report/CadreReport";
@@ -23,11 +23,11 @@ export interface RoutesI {
 }
 
 const routes: RoutesI[] = [
-  {
-    name: "register",
-    path: "/register",
-    component: Register,
-  },
+  // {
+  //   name: "register",
+  //   path: "/register",
+  //   component: Register,
+  // },
   {
     name: "login",
     path: "/login",
@@ -36,9 +36,9 @@ const routes: RoutesI[] = [
   },
   {
     name: "caseRecord",
-    path: "/case-record",
+    path: "/",
     component: CaseRecord,
-    layout: FullscreenLayout,
+    permission: ["login"],
   },
   // {
   //   name: "home",

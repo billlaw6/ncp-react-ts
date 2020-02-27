@@ -1,11 +1,12 @@
 import React, { ReactElement } from "react";
 import { Router, Switch, Route } from "react-router-dom";
-import { createBrowserHistory } from "history";
 import routes from "./routes/index";
 import "./App.css";
 import RouteWithSubRoutes from "./components/RouteWithSubRoutes";
+import { history } from "./store/configureStore";
 
-const history = createBrowserHistory();
+// 必须用同一个history
+// const history = createBrowserHistory();
 
 function App() {
   return (
