@@ -79,7 +79,7 @@ class CaseRecordForm extends React.Component<CaseRecordFormProps, CaseRecordStat
     const { vasTypeList, flowStatusList, caseRecord } = this.props;
 
     return (
-      <div className="case-record">
+      <div className="case-record-div">
         <div className="case-record-content">
           <div className="case-record-header">病案录入</div>
           <Form className="case-record-form" name="case-record" onSubmit={this.handleSubmit}>

@@ -312,13 +312,15 @@ class Home extends Component<HomePropsI, HomeStateI> {
       <div className="case-record">
         <div className="case-record-header">病历列表</div>
         <Row type="flex" justify="start">
-          <Col span={18}>
+          <Col sm={24} xs={24}>
             <SearchForm
               handleFieldsChange={this.handleFieldsChange}
               handleSubmit={this.handleSubmit}
             ></SearchForm>
           </Col>
-          <Col span={6}>
+        </Row>
+        <Row type="flex" justify="start">
+          <Col sm={24} xs={24}>
             <section className="case-record-summary">
               共检索到{caseRecordList.length}份数据
             </section>
@@ -336,13 +338,13 @@ class Home extends Component<HomePropsI, HomeStateI> {
             <Stats></Stats>
           </Col>
         </Row>
-        <div className="case-record-div">
+        <div className="case-record-table-div">
           <Row type="flex" justify="start" className="case-record-link">
             <Col span={12}>
               <h3>病历录入</h3>
             </Col>
             <Col offset={6} span={6}>
-              <a href="/case-record">新建录入</a>
+              <a href="/case-record">新录入</a>
             </Col>
           </Row>
           <Table
