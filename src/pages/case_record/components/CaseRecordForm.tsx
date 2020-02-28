@@ -1652,7 +1652,7 @@ class CaseRecordForm extends React.Component<CaseRecordFormProps, CaseRecordStat
             </Item>
 
             <Item colon={false} className="case-record-form-item">
-              <Button className="case-record-form-submit" type="primary" htmlType="submit">
+              <Button className="case-record-form-submit" type="default" htmlType="submit">
                 提交
               </Button>
             </Item>
