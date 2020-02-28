@@ -74,12 +74,12 @@ class CaseRecord extends React.Component<CaseRecordPropsI, CaseRecordStateI> {
             if (res.data) {
                 // let blob = new Blob([res.data]);
                 let blob = new Blob([res.data], {
-                    type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
                 });
                 let a = document.createElement("a");
                 let objectUrl = window.URL.createObjectURL(blob); // 创建下载链接
                 a.href = objectUrl;
-                // a.download = (new Date().valueOf()).toString + ".xlsx";
+                a.download = ((new Date()).valueOf()).toString() + ".xlsx";
                 document.body.appendChild(a);
                 a.click(); // 点击下载
                 // a.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
