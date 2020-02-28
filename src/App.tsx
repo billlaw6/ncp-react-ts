@@ -17,7 +17,7 @@ function App() {
         })}
         <Route
           render={(): ReactElement => (
-            <div>Basic1</div>
+            <div>Error Page</div>
           )}
         ></Route>
       </Switch>

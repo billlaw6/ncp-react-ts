@@ -36,15 +36,6 @@ export default function configureStore(preloadedState?: any) {
     ),
   );
 
-  // Hot reloading
-  // Property 'hot' does not exist on type 'NodeModule'
-  // if ((module as any).hot) {
-  //     // Enable Webpack hot module replacement for reducers
-  //     module!.hot.accept('./reducers', () => {
-  //         store.replaceReducer(createRootReducer(history));
-  //     });
-  // }
-
   sagaMiddleware.run(rootSaga);
   return store;
 }

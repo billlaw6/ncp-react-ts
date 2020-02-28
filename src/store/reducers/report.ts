@@ -202,9 +202,9 @@ const caseRecordReducer = (
   if (!action) return state;
   switch (action.type) {
     // 全部CASE必须返回STATE类型的数据，以替换原来的STATE。actions文件中已经指定了payload的类型。
-    case types.SET_CASE_RECORD_SEARCH_FORM:
+    case types.SET_CASE_RECORD:
       return {
-        ...defaultCaseRecordSearchForm,
+        ...defaultCaseRecord,
         ...action.payload,
       };
     default: {

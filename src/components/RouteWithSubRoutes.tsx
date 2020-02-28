@@ -13,7 +13,7 @@ class RouteWithSubRoutes extends Component<RoutesI & MapStateToPropsI> {
     const { permission = [], token } = this.props;
     if (permission.length > 0) {
       if (token.length > 0) {
-        console.log(token);
+        // console.log(token);
       } else {
         history.push({ pathname: "/login" });
       }

@@ -64,37 +64,49 @@ export const searchCadreReport = async (params: any) => {
 
 ////////////// ////////////// ////////////// //////////////
 export const submitCaseRecord = async (params: any) => {
-  const res = await axios.post(`/report/daily/`, params);
+  const res = await axios.post(`/report/case/`, params);
   return res;
 };
 
 export const getCaseRecordList = async (params: CaseRecordSearchFormI) => {
   // console.log(params);
-  const res = await axios.get(`/report/daily/`, { params: params });
+  const res = await axios.get(`/report/case/`, { params: params });
   return res;
 };
 
 export const checkCaseRecord = async (params: string[]) => {
-  const res = await axios.post(`/report/daily/check/`, { params: params });
+  const res = await axios.post(`/report/case/check/`, { params: params });
   return res;
 };
 
 export const downloadCaseRecordList = async (params: any) => {
-  const res = await axios.post(`/report/daily/download/`, params);
+  const res = await axios.post(`/report/case/download/`, params);
   return res;
 };
 
 export const getCaseRecordDetail = async (params: any) => {
-  const res = await axios.get(`/report/daily/${params.id}`, { params: params });
+  const res = await axios.get(`/report/case/${params.id}`, { params: params });
   return res;
 };
 
 export const searchCaseRecord = async (params: any) => {
-  const res = await axios.get(`/report/daily/`, { params: params });
+  const res = await axios.get(`/report/case/`, { params: params });
   return res;
 };
 
 export const statsCaseRecordList = async (params: any) => {
-  const res = await axios.get(`/report/daily/stats/`, { params: params });
+  const res = await axios.get(`/report/case/stats/`, { params: params });
+  return res;
+};
+
+export const getVasTypeList = async () => {
+  // console.log(params);
+  const res = await axios.get(`/report/vas-types/`);
+  return res;
+};
+
+export const getFlowStatusList = async () => {
+  // console.log(params);
+  const res = await axios.get(`/report/flow-status/`);
   return res;
 };

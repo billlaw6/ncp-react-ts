@@ -1,9 +1,9 @@
 import {
   UserI,
-  VasTypeI,
-  FlowStatusI,
   CaseRecordSearchFormI,
   CaseRecordI,
+  VasTypeI,
+  FlowStatusI,
 } from "../../constants/interface";
 import { SetCaseRecordActionFuncI, SetCaseRecordListActionFuncI } from "../../store/actions/report";
 import { RouteComponentProps } from "react-router";
@@ -24,5 +24,4 @@ export type CaseRecordPropsI = MapStateToPropsI & MapDispatchToPropsI & RouteCom
 export interface CaseRecordStateI {
   vasTypeList: VasTypeI[];
   flowStatusList: FlowStatusI[];
-  isEditable: boolean;
 }
