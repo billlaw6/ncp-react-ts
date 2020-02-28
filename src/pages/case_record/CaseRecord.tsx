@@ -75,8 +75,8 @@ class CaseRecord extends React.Component<CaseRecordPropsI, CaseRecordStateI> {
             let objectUrl = URL.createObjectURL(blob); // 创建下载链接
             a.href = objectUrl;
             document.body.appendChild(a);
-            a.click(); // 点击下载
-            // a.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+            // a.click(); // 点击下载
+            a.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
             document.body.removeChild(a);
             window.URL.revokeObjectURL(objectUrl); // 释放掉blob对象
         });

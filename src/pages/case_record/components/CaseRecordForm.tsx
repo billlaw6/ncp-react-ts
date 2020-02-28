@@ -6,6 +6,7 @@ import {
   InputNumber,
   Select,
   DatePicker,
+  notification,
 } from "antd";
 import { FormComponentProps } from "antd/es/form";
 import moment, { Moment } from "moment";
@@ -58,7 +59,12 @@ class CaseRecordForm extends React.Component<CaseRecordFormProps, CaseRecordStat
         values['operate_date'] = values['operate_date'].format(dateFormat)
         values['radio_date'] = values['radio_date'].format(dateFormat)
         submitCaseRecord(values).then((res) => {
-          console.log(res);
+          // console.log(res);
+          notification.open({
+            message: "病案保存结果",
+            description: "病案保存成功",
+            duration: 1.5,
+          })
         }).catch((err) => {
           console.log(err);
         })
