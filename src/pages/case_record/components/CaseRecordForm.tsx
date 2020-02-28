@@ -101,7 +101,7 @@ class CaseRecordForm extends React.Component<CaseRecordFormProps, CaseRecordStat
                 initialValue: moment(caseRecord.check_in_date),
               })(<DatePicker format={dateFormat} onChange={this.onCheckInDateChange}></DatePicker>)}
             </Item>
-            <Item label="入院日期" colon={false}>
+            <Item label="出院日期" colon={false}>
               {getFieldDecorator("check_out_date", {
                 rules: [{ required: true, message: "请录入出院日期" }],
                 initialValue: moment(caseRecord.check_out_date),
