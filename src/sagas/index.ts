@@ -77,12 +77,12 @@ function* updateUserEffect(action: ReturnType<typeof updateUserAction>) {
 
 function* logoutUserEffect(action: ReturnType<typeof logoutUserAction>) {
   try {
-    yield call(logoutUser);
     yield put({ type: types.SET_CASE_RECORD_LIST, payload: [] });
     yield put({ type: types.SET_TOKEN, payload: "" });
     yield put({ type: types.SET_USER, payload: {} });
     yield put({ type: types.SET_LOGIN_ERROR, payload: "" });
     yield put({ type: types.SET_CASE_RECORD_SEARCH_FORM, payload: {} });
+    yield call(logoutUser);
     yield put(push("/login"));
   } catch (error) {
     console.error(error);
