@@ -49,8 +49,8 @@ const Header: FunctionComponent<HeaderPropsI> = (props): ReactElement => {
     <AntdHeader id="header">
       <div className="header-content">
         <a className="logo" href="/">
+          查看列表
         </a>
-
         <Dropdown
           className="avatar"
           overlay={getAvatarMenu(props)}

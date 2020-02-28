@@ -14,7 +14,7 @@ import moment, { Moment } from "moment";
 import { VasTypeI, FlowStatusI, CaseRecordI } from "../../../constants/interface";
 import { CaseRecordStateI } from "../type";
 import { submitCaseRecord } from "../../../services/report";
-// import { history } from "../../store/configureStore";
+// import { history } from "../../../store/configureStore";
 
 import "./CaseRecordForm.less";
 
@@ -65,6 +65,8 @@ class CaseRecordForm extends React.Component<CaseRecordFormProps, CaseRecordStat
             description: "病案保存成功",
             duration: 1.5,
           })
+          // history.push('/')
+          // getCaseRecordListAction(caseRecordSearchForm);
         }).catch((err) => {
           console.log(err);
         })
@@ -116,6 +118,12 @@ class CaseRecordForm extends React.Component<CaseRecordFormProps, CaseRecordStat
                 rules: [{ required: true, message: "请录入手术日期" }],
                 initialValue: moment(caseRecord.radio_date),
               })(<DatePicker format={dateFormat} onChange={this.onRadioDateChange}></DatePicker>)}
+            </Item>
+            <Item label="CABG前造影SYNTAX Score" colon={false}>
+              {getFieldDecorator("CABG_syntax_score", {
+                rules: [{ required: true, message: "CABG前造影SYNTAX Score" }],
+                initialValue: caseRecord.CABG_syntax_score,
+              })(<InputNumber precision={2} name="CABG_syntax_score"></InputNumber>)}
             </Item>
             {/* 分段########################################## */}
             <Item label="LM_病变长度mm" colon={false}>

@@ -3,8 +3,8 @@ import { ComponentType } from "react";
 // import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import CaseRecord from "../pages/case_record/CaseRecord";
+import Home from "../pages/home/index";
 // import CadreReport from "../cadre_report/CadreReport";
-// import Home from "../pages/home/index";
 // import Profile from "../profile/Profile";
 // // import TempReport from "../temp_report/TempReport";
 // import DailyReport from "../daily_report/DailyReport";
@@ -36,17 +36,17 @@ const routes: RoutesI[] = [
   },
   {
     name: "caseRecord",
-    path: "/",
+    path: "/case-record",
     component: CaseRecord,
     permission: ["login"],
   },
-  // {
-  //   name: "home",
-  //   path: "/",
-  //   exact: true,
-  //   component: Home,
-  //   permission: ["login"],
-  // },
+  {
+    name: "home",
+    path: "/",
+    exact: true,
+    component: Home,
+    permission: ["login"],
+  },
   // {
   //   name: "profile",
   //   path: "/profile",

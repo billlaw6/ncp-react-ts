@@ -62,7 +62,7 @@ class Login extends React.Component<LoginFormProps & LoginPropsI, LoginStateI> {
           .then((res: any) => {
             console.log(res);
             setTokenAction(res.data.key);
-            history.push("/");
+            history.push("/case-record");
           })
           .catch((err: any) => {
             // console.log(err);
@@ -74,7 +74,7 @@ class Login extends React.Component<LoginFormProps & LoginPropsI, LoginStateI> {
         getUserInfo().then((res: any) => {
           // console.log(res.data);
           setUserAction(res.data);
-          history.push("/");
+          history.push("/case-record");
         }).catch((err) => {
           console.log(err);
         })

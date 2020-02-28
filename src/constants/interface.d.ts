@@ -1,5 +1,6 @@
 import { InputHTMLAttributes, DOMAttributes } from "react";
 import { Moment } from "moment";
+import { CaseRecordStateI } from "../pages/case_record/type";
 
 // Store相关接口
 // 本地变量遵循js规范使用驼峰式全名，需要与后台数据库字段对应的变量使用下划线风格。
@@ -70,7 +71,7 @@ export declare interface UserI {
 
 // export type CaseRecordI = any;
 export declare interface CaseRecordI {
-  id?: string;
+  id: string;
   reporter?: string;
   name: string;
   patient_no: string;
@@ -78,180 +79,181 @@ export declare interface CaseRecordI {
   check_out_date: Date;
   operate_date: Date;
   radio_date: Date;
+  CABG_syntax_score: number | undefined;
   ////
-  LM_lesion_length: number;
-  LM_min_area: number;
-  LM_diameter_ratio: number;
-  LM_area_ratio: number;
-  LM_qfr: number;
+  LM_lesion_length: number | undefined;
+  LM_min_area: number | undefined;
+  LM_diameter_ratio: number | undefined;
+  LM_area_ratio: number | undefined;
+  LM_qfr: number | undefined;
   ////
-  LAD_lesion_length: number;
-  LAD_min_area: number;
-  LAD_diameter_ratio: number;
-  LAD_area_ratio: number;
-  LAD_qfr: number;
+  LAD_lesion_length: number | undefined;
+  LAD_min_area: number | undefined;
+  LAD_diameter_ratio: number | undefined;
+  LAD_area_ratio: number | undefined;
+  LAD_qfr: number | undefined;
   ////
-  DIA1_lesion_length: number;
-  DIA1_min_area: number;
-  DIA1_diameter_ratio: number;
-  DIA1_area_ratio: number;
-  DIA1_qfr: number;
+  DIA1_lesion_length: number | undefined;
+  DIA1_min_area: number | undefined;
+  DIA1_diameter_ratio: number | undefined;
+  DIA1_area_ratio: number | undefined;
+  DIA1_qfr: number | undefined;
   ////
-  DIA2_lesion_length: number;
-  DIA2_min_area: number;
-  DIA2_diameter_ratio: number;
-  DIA2_area_ratio: number;
-  DIA2_qfr: number;
+  DIA2_lesion_length: number | undefined;
+  DIA2_min_area: number | undefined;
+  DIA2_diameter_ratio: number | undefined;
+  DIA2_area_ratio: number | undefined;
+  DIA2_qfr: number | undefined;
   ////
-  DIA3_lesion_length: number;
-  DIA3_min_area: number;
-  DIA3_diameter_ratio: number;
-  DIA3_area_ratio: number;
-  DIA3_qfr: number;
+  DIA3_lesion_length: number | undefined;
+  DIA3_min_area: number | undefined;
+  DIA3_diameter_ratio: number | undefined;
+  DIA3_area_ratio: number | undefined;
+  DIA3_qfr: number | undefined;
   ////
-  LCX_lesion_length: number;
-  LCX_min_area: number;
-  LCX_diameter_ratio: number;
-  LCX_area_ratio: number;
-  LCX_qfr: number;
+  LCX_lesion_length: number | undefined;
+  LCX_min_area: number | undefined;
+  LCX_diameter_ratio: number | undefined;
+  LCX_area_ratio: number | undefined;
+  LCX_qfr: number | undefined;
   ////
-  OM1_lesion_length: number;
-  OM1_min_area: number;
-  OM1_diameter_ratio: number;
-  OM1_area_ratio: number;
-  OM1_qfr: number;
+  OM1_lesion_length: number | undefined;
+  OM1_min_area: number | undefined;
+  OM1_diameter_ratio: number | undefined;
+  OM1_area_ratio: number | undefined;
+  OM1_qfr: number | undefined;
   ////
-  OM2_lesion_length: number;
-  OM2_min_area: number;
-  OM2_diameter_ratio: number;
-  OM2_area_ratio: number;
-  OM2_qfr: number;
+  OM2_lesion_length: number | undefined;
+  OM2_min_area: number | undefined;
+  OM2_diameter_ratio: number | undefined;
+  OM2_area_ratio: number | undefined;
+  OM2_qfr: number | undefined;
   ////
-  RAMUS_lesion_length: number;
-  RAMUS_min_area: number;
-  RAMUS_diameter_ratio: number;
-  RAMUS_area_ratio: number;
-  RAMUS_qfr: number;
+  RAMUS_lesion_length: number | undefined;
+  RAMUS_min_area: number | undefined;
+  RAMUS_diameter_ratio: number | undefined;
+  RAMUS_area_ratio: number | undefined;
+  RAMUS_qfr: number | undefined;
   ////
-  RCA_lesion_length: number;
-  RCA_min_area: number;
-  RCA_diameter_ratio: number;
-  RCA_area_ratio: number;
-  RCA_qfr: number;
+  RCA_lesion_length: number | undefined;
+  RCA_min_area: number | undefined;
+  RCA_diameter_ratio: number | undefined;
+  RCA_area_ratio: number | undefined;
+  RCA_qfr: number | undefined;
   ////
-  PLA_lesion_length: number;
-  PLA_min_area: number;
-  PLA_diameter_ratio: number;
-  PLA_area_ratio: number;
-  PLA_qfr: number;
+  PLA_lesion_length: number | undefined;
+  PLA_min_area: number | undefined;
+  PLA_diameter_ratio: number | undefined;
+  PLA_area_ratio: number | undefined;
+  PLA_qfr: number | undefined;
   ////
-  PDA_lesion_length: number;
-  PDA_min_area: number;
-  PDA_diameter_ratio: number;
-  PDA_area_ratio: number;
-  PDA_qfr: number;
+  PDA_lesion_length: number | undefined;
+  PDA_min_area: number | undefined;
+  PDA_diameter_ratio: number | undefined;
+  PDA_area_ratio: number | undefined;
+  PDA_qfr: number | undefined;
   ////
   B_LAD_vas_type: string;
-  B_LAD_target_vas_narrow_ratio_before: number;
-  B_LAD_target_vas_qfr_before: number;
-  B_LAD_bridge_flux: number;
+  B_LAD_target_vas_narrow_ratio_before: number | undefined;
+  B_LAD_target_vas_qfr_before: number | undefined;
+  B_LAD_bridge_flux: number | undefined;
   B_LAD_flow_status: string;
-  B_LAD_bridge_qfr: number;
-  B_LAD_target_vas_narrow_ratio_after: number;
-  B_LAD_target_vas_qfr_after: number;
+  B_LAD_bridge_qfr: number | undefined;
+  B_LAD_target_vas_narrow_ratio_after: number | undefined;
+  B_LAD_target_vas_qfr_after: number | undefined;
   ////
   B_DIA1_vas_type: string;
-  B_DIA1_target_vas_narrow_ratio_before: number;
-  B_DIA1_target_vas_qfr_before: number;
-  B_DIA1_bridge_flux: number;
+  B_DIA1_target_vas_narrow_ratio_before: number | undefined;
+  B_DIA1_target_vas_qfr_before: number | undefined;
+  B_DIA1_bridge_flux: number | undefined;
   B_DIA1_flow_status: string;
-  B_DIA1_bridge_qfr: number;
-  B_DIA1_target_vas_narrow_ratio_after: number;
-  B_DIA1_target_vas_qfr_after: number;
+  B_DIA1_bridge_qfr: number | undefined;
+  B_DIA1_target_vas_narrow_ratio_after: number | undefined;
+  B_DIA1_target_vas_qfr_after: number | undefined;
   ////
   B_DIA2_vas_type: string;
-  B_DIA2_target_vas_narrow_ratio_before: number;
-  B_DIA2_target_vas_qfr_before: number;
-  B_DIA2_bridge_flux: number;
+  B_DIA2_target_vas_narrow_ratio_before: number | undefined;
+  B_DIA2_target_vas_qfr_before: number | undefined;
+  B_DIA2_bridge_flux: number | undefined;
   B_DIA2_flow_status: string;
-  B_DIA2_bridge_qfr: number;
-  B_DIA2_target_vas_narrow_ratio_after: number;
-  B_DIA2_target_vas_qfr_after: number;
+  B_DIA2_bridge_qfr: number | undefined;
+  B_DIA2_target_vas_narrow_ratio_after: number | undefined;
+  B_DIA2_target_vas_qfr_after: number | undefined;
   ////
   B_OM1_vas_type: string;
-  B_OM1_target_vas_narrow_ratio_before: number;
-  B_OM1_target_vas_qfr_before: number;
-  B_OM1_bridge_flux: number;
+  B_OM1_target_vas_narrow_ratio_before: number | undefined;
+  B_OM1_target_vas_qfr_before: number | undefined;
+  B_OM1_bridge_flux: number | undefined;
   B_OM1_flow_status: string;
-  B_OM1_bridge_qfr: number;
-  B_OM1_target_vas_narrow_ratio_after: number;
-  B_OM1_target_vas_qfr_after: number;
+  B_OM1_bridge_qfr: number | undefined;
+  B_OM1_target_vas_narrow_ratio_after: number | undefined;
+  B_OM1_target_vas_qfr_after: number | undefined;
   ////
   B_OM2_vas_type: string;
-  B_OM2_target_vas_narrow_ratio_before: number;
-  B_OM2_target_vas_qfr_before: number;
-  B_OM2_bridge_flux: number;
+  B_OM2_target_vas_narrow_ratio_before: number | undefined;
+  B_OM2_target_vas_qfr_before: number | undefined;
+  B_OM2_bridge_flux: number | undefined;
   B_OM2_flow_status: string;
-  B_OM2_bridge_qfr: number;
-  B_OM2_target_vas_narrow_ratio_after: number;
-  B_OM2_target_vas_qfr_after: number;
+  B_OM2_bridge_qfr: number | undefined;
+  B_OM2_target_vas_narrow_ratio_after: number | undefined;
+  B_OM2_target_vas_qfr_after: number | undefined;
   ////
   B_OM3_vas_type: string;
-  B_OM3_target_vas_narrow_ratio_before: number;
-  B_OM3_target_vas_qfr_before: number;
-  B_OM3_bridge_flux: number;
+  B_OM3_target_vas_narrow_ratio_before: number | undefined;
+  B_OM3_target_vas_qfr_before: number | undefined;
+  B_OM3_bridge_flux: number | undefined;
   B_OM3_flow_status: string;
-  B_OM3_bridge_qfr: number;
-  B_OM3_target_vas_narrow_ratio_after: number;
-  B_OM3_target_vas_qfr_after: number;
+  B_OM3_bridge_qfr: number | undefined;
+  B_OM3_target_vas_narrow_ratio_after: number | undefined;
+  B_OM3_target_vas_qfr_after: number | undefined;
   ////
   B_RAMUS_vas_type: string;
-  B_RAMUS_target_vas_narrow_ratio_before: number;
-  B_RAMUS_target_vas_qfr_before: number;
-  B_RAMUS_bridge_flux: number;
+  B_RAMUS_target_vas_narrow_ratio_before: number | undefined;
+  B_RAMUS_target_vas_qfr_before: number | undefined;
+  B_RAMUS_bridge_flux: number | undefined;
   B_RAMUS_flow_status: string;
-  B_RAMUS_bridge_qfr: number;
-  B_RAMUS_target_vas_narrow_ratio_after: number;
-  B_RAMUS_target_vas_qfr_after: number;
+  B_RAMUS_bridge_qfr: number | undefined;
+  B_RAMUS_target_vas_narrow_ratio_after: number | undefined;
+  B_RAMUS_target_vas_qfr_after: number | undefined;
   ////
   B_RCA_vas_type: string;
-  B_RCA_target_vas_narrow_ratio_before: number;
-  B_RCA_target_vas_qfr_before: number;
-  B_RCA_bridge_flux: number;
+  B_RCA_target_vas_narrow_ratio_before: number | undefined;
+  B_RCA_target_vas_qfr_before: number | undefined;
+  B_RCA_bridge_flux: number | undefined;
   B_RCA_flow_status: string;
-  B_RCA_bridge_qfr: number;
-  B_RCA_target_vas_narrow_ratio_after: number;
-  B_RCA_target_vas_qfr_after: number;
+  B_RCA_bridge_qfr: number | undefined;
+  B_RCA_target_vas_narrow_ratio_after: number | undefined;
+  B_RCA_target_vas_qfr_after: number | undefined;
   ////
   B_PLA_vas_type: string;
-  B_PLA_target_vas_narrow_ratio_before: number;
-  B_PLA_target_vas_qfr_before: number;
-  B_PLA_bridge_flux: number;
+  B_PLA_target_vas_narrow_ratio_before: number | undefined;
+  B_PLA_target_vas_qfr_before: number | undefined;
+  B_PLA_bridge_flux: number | undefined;
   B_PLA_flow_status: string;
-  B_PLA_bridge_qfr: number;
-  B_PLA_target_vas_narrow_ratio_after: number;
-  B_PLA_target_vas_qfr_after: number;
+  B_PLA_bridge_qfr: number | undefined;
+  B_PLA_target_vas_narrow_ratio_after: number | undefined;
+  B_PLA_target_vas_qfr_after: number | undefined;
   ////
   B_PDA_vas_type: string;
-  B_PDA_target_vas_narrow_ratio_before: number;
-  B_PDA_target_vas_qfr_before: number;
-  B_PDA_bridge_flux: number;
+  B_PDA_target_vas_narrow_ratio_before: number | undefined;
+  B_PDA_target_vas_qfr_before: number | undefined;
+  B_PDA_bridge_flux: number | undefined;
   B_PDA_flow_status: string;
-  B_PDA_bridge_qfr: number;
-  B_PDA_target_vas_narrow_ratio_after: number;
-  B_PDA_target_vas_qfr_after: number;
+  B_PDA_bridge_qfr: number | undefined;
+  B_PDA_target_vas_narrow_ratio_after: number | undefined;
+  B_PDA_target_vas_qfr_after: number | undefined;
   ////
   B_Other_vas_type: string;
-  B_Other_target_vas_narrow_ratio_before: number;
-  B_Other_target_vas_qfr_before: number;
-  B_Other_bridge_flux: number;
+  B_Other_target_vas_narrow_ratio_before: number | undefined;
+  B_Other_target_vas_qfr_before: number | undefined;
+  B_Other_bridge_flux: number | undefined;
   B_Other_flow_status: string;
-  B_Other_bridge_qfr: number;
-  B_Other_target_vas_narrow_ratio_after: number;
-  B_Other_target_vas_qfr_after: number;
+  B_Other_bridge_qfr: number | undefined;
+  B_Other_target_vas_narrow_ratio_after: number | undefined;
+  B_Other_target_vas_qfr_after: number | undefined;
   ////
   comments?: string;
-  check_flag?: number;
+  check_flag?: number | undefined;
   check_operator?: string;
   chekced_at?: Date;
   created_at?: Date;
@@ -304,6 +306,7 @@ export declare interface StoreStateI {
   caseRecordSearchForm: CaseRecordSearchFormI;
   caseRecord: CaseRecordI;
   caseRecordList: CaseRecordI[];
+  caseRecordStats: CaseRecordStatsT[];
 }
 
 export declare interface CustomHTMLDivElement extends HTMLDivElement {

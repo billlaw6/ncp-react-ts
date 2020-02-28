@@ -54,44 +54,44 @@ class CaseRecord extends React.Component<CaseRecordPropsI, CaseRecordStateI> {
         });
     };
 
-    handleDownloadClick = () => {
-        const { caseRecordSearchForm } = this.props;
-        // console.log("donwload clicked");
-        const downloadUrl = baseURL + "report/case/download/";
-        axios({
-            method: "get",
-            url: downloadUrl,
-            params: caseRecordSearchForm,
-            headers: {
-                "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                // "X-Requested-With": "XMLHttpRequest",
-                // "Content-Type": "application/x-download;charset=utf-8",
-                // "Content-Dispositin": "attachment;filename=abc.xlsx",
-            },
-            responseType: "blob",
-        }).then((res: any) => {
-            // let blob = new Blob([res]);
-            if (res.data) {
-                // let blob = new Blob([res.data]);
-                let blob = new Blob([res.data], {
-                    type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
-                });
-                let a = document.createElement("a");
-                let objectUrl = window.URL.createObjectURL(blob); // 创建下载链接
-                a.href = objectUrl;
-                a.download = ((new Date()).valueOf()).toString() + ".xlsx";
-                document.body.appendChild(a);
-                a.click(); // 点击下载
-                // a.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(objectUrl); // 释放掉blob对象
-            } else {
-                console.error("no data");
-            }
-        }).catch((err) => {
-            console.error(err);
-        });
-    };
+    // handleDownloadClick = () => {
+    //     const { caseRecordSearchForm } = this.props;
+    //     // console.log("donwload clicked");
+    //     const downloadUrl = baseURL + "report/case/download/";
+    //     axios({
+    //         method: "get",
+    //         url: downloadUrl,
+    //         params: caseRecordSearchForm,
+    //         headers: {
+    //             "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    //             // "X-Requested-With": "XMLHttpRequest",
+    //             // "Content-Type": "application/x-download;charset=utf-8",
+    //             // "Content-Dispositin": "attachment;filename=abc.xlsx",
+    //         },
+    //         responseType: "blob",
+    //     }).then((res: any) => {
+    //         // let blob = new Blob([res]);
+    //         if (res.data) {
+    //             // let blob = new Blob([res.data]);
+    //             let blob = new Blob([res.data], {
+    //                 type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
+    //             });
+    //             let a = document.createElement("a");
+    //             let objectUrl = window.URL.createObjectURL(blob); // 创建下载链接
+    //             a.href = objectUrl;
+    //             a.download = ((new Date()).valueOf()).toString() + ".xlsx";
+    //             document.body.appendChild(a);
+    //             a.click(); // 点击下载
+    //             // a.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+    //             document.body.removeChild(a);
+    //             window.URL.revokeObjectURL(objectUrl); // 释放掉blob对象
+    //         } else {
+    //             console.error("no data");
+    //         }
+    //     }).catch((err) => {
+    //         console.error(err);
+    //     });
+    // };
 
     handleChange = (changedFields: any): void => {
         const { caseRecord, setCaseRecordAction } = this.props;
@@ -117,19 +117,6 @@ class CaseRecord extends React.Component<CaseRecordPropsI, CaseRecordStateI> {
                     caseRecord={caseRecord}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit} />
-                <Row>
-                    <Col>
-                        <Button
-                            style={{
-                                margin: "15px",
-                                float: "right",
-                            }}
-                            onClick={this.handleDownloadClick}
-                        >
-                            下载报告到Excel文件
-                    </Button>
-                    </Col>
-                </Row>
             </div>
         );
     }
