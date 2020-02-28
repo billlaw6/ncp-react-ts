@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { StoreStateI } from "../../constants/interface";
 import { CaseRecordPropsI, CaseRecordStateI, MapStateToPropsI, MapDispatchToPropsI } from "./type";
-import { Row, Col, Button } from "antd";
 import WrappedCaseRecordForm from "./components/CaseRecordForm";
 // import { history } from "../../store/configureStore";
 import { submitCaseRecord, getVasTypeList, getFlowStatusList } from "../../services/report";
@@ -11,9 +10,6 @@ import { submitCaseRecord, getVasTypeList, getFlowStatusList } from "../../servi
 import "./CaseRecord.less";
 
 import { setCaseRecordAction, setCaseRecordListAction } from "../../store/actions/report";
-import { baseURL } from "../../services/api";
-import axios from "axios";
-
 
 class CaseRecord extends React.Component<CaseRecordPropsI, CaseRecordStateI> {
     constructor(props: CaseRecordPropsI) {

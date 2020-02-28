@@ -160,13 +160,13 @@ class Home extends Component<HomePropsI, HomeStateI> {
   
 
   render(): ReactElement {
-    const { user, caseRecordList } = this.props;
-    const { isDeptReporter, selectedRowKeys } = this.state;
+    const { caseRecordList } = this.props;
+    const { selectedRowKeys } = this.state;
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
     };
-    const hasSelected = selectedRowKeys.length > 0;
+    // const hasSelected = selectedRowKeys.length > 0;
     const columns: any = [
       {
         title: "姓名",
@@ -180,6 +180,9 @@ class Home extends Component<HomePropsI, HomeStateI> {
             </span>
           );
         },
+        sorter: (a: any, b: any) => {
+          return a.name.localeCompare(b.name, "zh-CN");
+        },
       },
       {
         title: "病案号",
@@ -191,6 +194,9 @@ class Home extends Component<HomePropsI, HomeStateI> {
               <span>{text}</span>
             </span>
           );
+        },
+        sorter: (a: any, b: any) => {
+          return a.patient_no.localeCompare(b.patient_no, "zh-CN");
         },
       },
       {
@@ -284,6 +290,9 @@ class Home extends Component<HomePropsI, HomeStateI> {
         key: "reporter_name",
         render: (value: string) => {
           return <span> {value}</span>;
+        },
+        sorter: (a: any, b: any) => {
+          return a.reporter_name.localeCompare(b.reporter_name, "zh-CN");
         },
       },
       // {
